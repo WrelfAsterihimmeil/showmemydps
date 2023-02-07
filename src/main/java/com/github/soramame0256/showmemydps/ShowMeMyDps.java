@@ -1,5 +1,6 @@
 package com.github.soramame0256.showmemydps;
 
+import com.github.soramame0256.showmemydps.GUI.ShowMeGUI;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.ClientCommandHandler;
@@ -53,6 +54,7 @@ public class ShowMeMyDps {
     public void postinit(FMLPostInitializationEvent event) {
         EVENT_LISTENER = new EventListener();
         MinecraftForge.EVENT_BUS.register(EVENT_LISTENER);
+        MinecraftForge.EVENT_BUS.register(new ShowMeGUI());
         ClientCommandHandler.instance.registerCommand(new ShowCommand());
     }
 }

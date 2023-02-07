@@ -1,5 +1,6 @@
 package com.github.soramame0256.showmemydps;
 
+import com.github.soramame0256.showmemydps.GUI.ShowMeGUI;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.entity.Entity;
@@ -144,4 +145,17 @@ public class EventListener {
         makeAllExpire();
         return hitCount;
     }
+
+    public class DPSData {
+        DPSData(long d, int hc, Instant tick) {
+            damage = d;
+            hitCount = hc;
+            tickHandle = tick;
+        }
+
+        public long damage = 0;
+        public int hitCount = 0;
+        public Instant tickHandle = Instant.now();
+    }
+    public DPSData getDpsData() { return new DPSData(damage, hitCount, start); }
 }
